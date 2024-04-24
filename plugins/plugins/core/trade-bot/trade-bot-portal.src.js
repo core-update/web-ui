@@ -2882,7 +2882,7 @@ class TradeBotPortal extends LitElement {
 		const initTradeOffersWebSocket = (restarted = false) => {
 			let tradeOffersSocketCounter = 0
 			let socketTimeout
-			let socketLink = `ws://NODEURL/websockets/crosschain/tradeoffers?foreignBlockchain=FOREIGN_BLOCKCHAIN&includeHistoric=true`
+			let socketLink = `wss://NODEURL/websockets/crosschain/tradeoffers?foreignBlockchain=FOREIGN_BLOCKCHAIN&includeHistoric=true`
 			const socket = new WebSocket(socketLink)
 			socket.onopen = () => {
 				setTimeout(pingSocket, 50)
@@ -2914,7 +2914,7 @@ class TradeBotPortal extends LitElement {
 
 		const initTradeBotWebSocket = (restarted = false) => {
 			let socketTimeout
-			let socketLink = `ws://NODEURL/websockets/crosschain/tradebot?foreignBlockchain=FOREIGN_BLOCKCHAIN`
+			let socketLink = `wss://NODEURL/websockets/crosschain/tradebot?foreignBlockchain=FOREIGN_BLOCKCHAIN`
 			const socket = new WebSocket(socketLink)
 			socket.onopen = () => {
 				setTimeout(pingSocket, 50)
@@ -2943,7 +2943,7 @@ class TradeBotPortal extends LitElement {
 
 		const initTradePresenceWebSocket = (restarted = false) => {
 			let socketTimeout
-			let socketLink = `ws://NODEURL/websockets/crosschain/tradepresence`
+			let socketLink = `wss://NODEURL/websockets/crosschain/tradepresence`
 			const socket = new WebSocket(socketLink)
 			socket.onopen = () => {
 				setTimeout(pingSocket, 50)

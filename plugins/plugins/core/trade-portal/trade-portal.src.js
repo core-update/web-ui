@@ -2124,7 +2124,7 @@ class TradePortal extends LitElement {
 		const initTradeOffersWebSocket = (restarted = false) => {
 			let tradeOffersSocketCounter = 0
 			let socketTimeout
-			let socketLink = `ws://NODEURL/websockets/crosschain/tradeoffers?foreignBlockchain=FOREIGN_BLOCKCHAIN&includeHistoric=true`
+			let socketLink = `wss://NODEURL/websockets/crosschain/tradeoffers?foreignBlockchain=FOREIGN_BLOCKCHAIN&includeHistoric=true`
 			const socket = new WebSocket(socketLink)
 			socket.onopen = () => {
 				setTimeout(pingSocket, 50)
@@ -2156,7 +2156,7 @@ class TradePortal extends LitElement {
 
 		const initTradeBotWebSocket = (restarted = false) => {
 			let socketTimeout
-			let socketLink = `ws://NODEURL/websockets/crosschain/tradebot?foreignBlockchain=FOREIGN_BLOCKCHAIN`
+			let socketLink = `wss://NODEURL/websockets/crosschain/tradebot?foreignBlockchain=FOREIGN_BLOCKCHAIN`
 			const socket = new WebSocket(socketLink)
 			socket.onopen = () => {
 				setTimeout(pingSocket, 50)
@@ -2185,7 +2185,7 @@ class TradePortal extends LitElement {
 
 		const initTradePresenceWebSocket = (restarted = false) => {
 			let socketTimeout
-			let socketLink = `ws://NODEURL/websockets/crosschain/tradepresence`
+			let socketLink = `wss://NODEURL/websockets/crosschain/tradepresence`
 			const socket = new WebSocket(socketLink)
 			socket.onopen = () => {
 				setTimeout(pingSocket, 50)
@@ -2721,7 +2721,7 @@ class TradePortal extends LitElement {
 		})
 
 		const getCompletedTrades = async () => {
-			const url = `http://NODEURL/crosschain/trades?limit=25&reverse=true&foreignBlockchain=FOREIGN_BLOCKCHAIN`
+			const url = `https://NODEURL/crosschain/trades?limit=25&reverse=true&foreignBlockchain=FOREIGN_BLOCKCHAIN`
 			const res = await fetch(url)
 			const historicTrades = await res.json()
 			const compareFn = (a, b) => {
@@ -2740,7 +2740,7 @@ class TradePortal extends LitElement {
 		}
 
 		const getOffers = async () => {
-			const url = `http://NODEURL/crosschain/tradeoffers?foreignBlockchain=FOREIGN_BLOCKCHAIN`
+			const url = `https://NODEURL/crosschain/tradeoffers?foreignBlockchain=FOREIGN_BLOCKCHAIN`
 			const res = await fetch(url)
 			const openTradeOrders = await res.json()
 			const myOpenTradeOrders = await openTradeOrders.filter((order) => order.mode === 'OFFERING' && order.qortalCreator === 'SELECTED_ADDRESS')
