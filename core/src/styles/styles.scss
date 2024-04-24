@@ -1,0 +1,17 @@
+$mdc-layout-grid-breakpoints: (
+    desktop: 1440px,
+    laptop: 1240px,
+    tablet: 600px,
+    phone: 0px
+);
+
+:root, html, body {
+    --layout-breakpoint-desktop: #{map-get($mdc-layout-grid-breakpoints, desktop)};
+    --layout-breakpoint-laptop: #{map-get($mdc-layout-grid-breakpoints, laptop)};
+    --layout-breakpoint-tablet: #{map-get($mdc-layout-grid-breakpoints, tablet)};
+    --layout-breakpoint-mobile: #{map-get($mdc-layout-grid-breakpoints, phone)};
+}
+
+iframe.pluginJSFrame {
+    display:none;
+}
