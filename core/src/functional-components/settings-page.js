@@ -303,24 +303,16 @@ class SettingsPage extends connect(store)(LitElement) {
 		localStorage.removeItem('myQortalNodes')
 
 		const obj1 = {
-			name: 'Local Node',
-			protocol: 'http',
-			domain: '127.0.0.1',
-			port: 12391,
-			enableManagement: true
-		}
-
-		const obj2 = {
-			name: 'Local Testnet',
-			protocol: 'http',
-			domain: '127.0.0.1',
-			port: 62391,
-			enableManagement: true
+			name: 'Web UI Node',
+			protocol: 'https',
+			domain: 'webapi.qortal.online',
+			port: 443,
+			enableManagement: false
 		}
 
 		var renewNodes = []
 
-		renewNodes.push(obj1, obj2)
+		renewNodes.push(obj1)
 
 		localStorage.setItem('myQortalNodes', JSON.stringify(renewNodes))
 

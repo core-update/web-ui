@@ -26,7 +26,7 @@ export const doLoadNodeConfig = () => {
 
 				if (checkNodes === null || checkNodes.length === 0) {
 					var saveNode = []
-					saveNode.push(obj1, obj2)
+					saveNode.push(obj1)
 					localStorage.setItem('myQortalNodes', JSON.stringify(saveNode))
 					nodeConfig.knownNodes = JSON.parse(localStorage.getItem('myQortalNodes'))
 				} else {
@@ -102,17 +102,9 @@ const removeNode = (payload) => {
 }
 
 const obj1 = {
-	name: 'Local Node',
-	protocol: 'http',
-	domain: '127.0.0.1',
-	port: 12391,
-	enableManagement: true
-}
-
-const obj2 = {
-	name: 'Local Testnet',
-	protocol: 'http',
-	domain: '127.0.0.1',
-	port: 62391,
-	enableManagement: true
+	name: 'Web UI Node',
+	protocol: 'https',
+	domain: 'webapi.qortal.online',
+	port: 443,
+	enableManagement: false
 }
